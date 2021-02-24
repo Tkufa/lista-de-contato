@@ -1,13 +1,14 @@
-
-let contatos = JSON.parse(localStorage.getItem('contatos')) || [];
+let contatos = JSON.parse(localStorage.getItem("contatos")) || [];
 
 const nome = document.getElementById("nome");
 const email = document.getElementById("email");
 const telefone = document.getElementById("tel");
 
-const alerta = document.getElementById("alerta")
+const alerta = document.getElementById("alerta");
+
 const btn = document.getElementById("btn");
 const listaUL = document.getElementById("listaCliente");
+
 
 const rederizarContato = (id) => {
   listaUL.innerHTML = "";
@@ -41,7 +42,7 @@ const rederizarContato = (id) => {
     itemLista.appendChild(email);
     itemLista.appendChild(whatsApp);
     listaUL.appendChild(itemLista);
-    salvarDadosNoStorage()
+    salvarDadosNoStorage();
   }
 };
 
@@ -52,18 +53,19 @@ const deletarContato = (tar) => {
 };
 
 btn.onclick = () => {
-  console.log(alerta.innerText)
+  alerta.setAttribute("style", "padding: 0;");
   alerta.innerText = ""
+
   if (nome.value !== "" && email.value !== "" && telefone.value !== "") {
-  
     contatos.push({
       nome: nome.value,
       email: email.value,
       whatsApp: telefone.value,
     });
     rederizarContato();
-  }else{
-    alerta.innerText = "digite os dados do conatato"
+  } else {
+    alerta.setAttribute("style", "padding: 5px;");
+    alerta.innerText = "digite os dados do contato!";
   }
 
   nome.value = "";
@@ -71,10 +73,8 @@ btn.onclick = () => {
   telefone.value = "";
 };
 
-function salvarDadosNoStorage(){
-  localStorage.setItem('contatos', JSON.stringify(contatos));
+function salvarDadosNoStorage() {
+  localStorage.setItem("contatos", JSON.stringify(contatos));
 }
-
-
 
 rederizarContato();
