@@ -5,6 +5,7 @@ const nome = document.getElementById("nome");
 const email = document.getElementById("email");
 const telefone = document.getElementById("tel");
 
+const alerta = document.getElementById("alerta")
 const btn = document.getElementById("btn");
 const listaUL = document.getElementById("listaCliente");
 
@@ -51,7 +52,9 @@ const deletarContato = (tar) => {
 };
 
 btn.onclick = () => {
-  if (nome.value !== "") {
+  console.log(alerta.innerText)
+  alerta.innerText = ""
+  if (nome.value !== "" && email.value !== "" && telefone.value !== "") {
   
     contatos.push({
       nome: nome.value,
@@ -59,6 +62,8 @@ btn.onclick = () => {
       whatsApp: telefone.value,
     });
     rederizarContato();
+  }else{
+    alerta.innerText = "digite os dados do conatato"
   }
 
   nome.value = "";

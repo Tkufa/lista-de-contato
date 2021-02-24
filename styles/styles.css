@@ -47,15 +47,16 @@ h1{
   outline: 0;
 }
 
-/* Cor do texto do autocomplete */
-.form:-webkit-autofill {
-  -webkit-text-fill-color:darkslategrey !important;
-}
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset;
-}
 
-
+.alerta{
+  background-color: rgba(255, 99, 71, 0.781);
+  color: #f8fcff;
+  margin-top: 10px;
+  font-size: small;
+  font-weight: 100;
+  padding: 5px;
+  border-radius: 5px;
+}
 .btn {
   padding: 10px 30px 10px 30px;
   text-align: center;
